@@ -41,4 +41,14 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+    public function configure()
+    {
+        return $this->afterCreating(function ($user) {
+            // Attach a random existing role
+            $user->roles()->attach(
+                \App\Models\Role::inRandomOrder()->first()->id
+            );
+        });
+    }
+
 }

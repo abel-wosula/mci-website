@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Media extends Model
 {
@@ -15,12 +16,7 @@ class Media extends Model
         'mime_type',
         'size',
         'type',
-        'width',
-        'height',
-        'duration',
         'user_id',
-        'mediable_id',
-        'mediable_type',
     ];
 
     // The model this media item is attached to (Page, Post, etc.)
