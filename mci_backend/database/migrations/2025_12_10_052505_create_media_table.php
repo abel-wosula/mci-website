@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            
-            $table->timestamps();
+        $table->string('filename');
+        $table->string('original_name')->nullable();
+        $table->string('path'); // eg. storage/app/public/media/xyz.jpg
+        $table->string('mime_type')->nullable();
+        $table->unsignedBigInteger('size')->nullable(); // in bytes
+        // Type of media: image, video, infographic, etc.
+        $table->enum('type', ['image', 'video', 'infographic', 'other'])->default('image');
+        $table->timestamps();
         });
     }
 
