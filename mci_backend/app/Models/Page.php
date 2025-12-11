@@ -24,9 +24,4 @@ class Page extends Model
         return $this->belongsTo(User::class);
     }
 
-    // This page can have many media items attached
-    public function media(): MorphMany
-    {
-        return $this->morphMany(Media::class, 'mediable');
-    }
 }
